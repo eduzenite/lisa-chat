@@ -1,19 +1,9 @@
-from services.providers.openai_service import OpenAIService
-from services.providers.gemini_service import GeminiService
-from services.providers.claude_service import ClaudeService
+from sqlalchemy.orm import Session
+from services.sql_ai_service import SQLAIService
 
 class AgnoManager:
-    def __init__(self):
-        self.providers = {
-            "openai": OpenAIService(),
-            "gemini": GeminiService(),
-            "claude": ClaudeService()
-        }
+    def __init__(self, db: Session):
+        self.sql_ai = SQLAIService(db)
 
-    async def ask(self, provider_name: str, question: str):
-        provider = self.providers.get(provider_name)
-
-        if not provider:
-            raise ValueError(f"Provider {provider_name} não configurado")
-
-        return await provider.ask(question)
+    def ask_db(self, question: str) -> str:
+        return self.sql_ai.ask(question)

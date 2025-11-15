@@ -7,5 +7,6 @@ class Settings:
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY")
     CLAUDE_API_KEY: str = os.getenv("CLAUDE_API_KEY")
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
 
 settings = Settings()

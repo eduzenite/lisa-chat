@@ -1,20 +1,28 @@
+import os
 from openai import OpenAI
-from core.config import settings
 
 class OpenAIService:
     def __init__(self):
-        if not settings.OPENAI_API_KEY:
-            raise RuntimeError("OPENAI_API_KEY não encontrada no .env")
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-        self.client = OpenAI(api_key=settings.OPENAI_API_KEY)
-
-    async def ask(self, question: str) -> str:
+    def get_sql(self, prompt: str) -> str:
+        """
+        Gera SQL a partir do prompt usando OpenAI
+        """
         response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "user", "content": question}
-            ]
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
         )
+        return response.choices[0].message.content.strip()
 
-        # Aqui está o ajuste correto
-        return response.choices[0].message.content
+    def get_text(self, prompt: str) -> str:
+        """
+        Gera resposta em linguagem natural
+        """
+        response = self.client.chat.completions.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.5
+        )
+        return response.choices[0].message.content.strip()

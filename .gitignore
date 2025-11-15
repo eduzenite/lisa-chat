@@ -1,1 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.DS_Store
+
+# Environment variables
 .env
+.env.*
+
+# Database / Migrations
+*.sqlite3
+*.db
+/migrations/
+models/models.py  # se você quiser ignorar models gerados dinamicamente
+
+# Logs
+*.log
+logs/
+*.out
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# Misc
+*.bak
+*.tmp
+*.backup
+
+# Arquivos
+/models/models.py
