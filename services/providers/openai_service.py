@@ -10,7 +10,7 @@ class OpenAIService:
         Gera SQL a partir do prompt usando OpenAI
         """
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
@@ -21,7 +21,7 @@ class OpenAIService:
         Gera resposta em linguagem natural
         """
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.5
         )

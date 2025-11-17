@@ -39,7 +39,7 @@ Crie um arquivo `.env`:
 ## ▶️ Executando
 
 ``` sh
-uvicorn app.main --reload
+uvicorn main:app --reload --port 9000
 ```
 
 ## 🧪 Testando
