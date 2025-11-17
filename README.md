@@ -39,7 +39,7 @@ Crie um arquivo `.env`:
 ## ▶️ Executando
 
 ``` sh
-uvicorn app.main:app --reload
+uvicorn app.main --reload
 ```
 
 ## 🧪 Testando
